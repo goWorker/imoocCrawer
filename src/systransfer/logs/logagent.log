@@ -1,0 +1,152 @@
+2019-01-02 15:03:38.023 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:5.436573311367381, Load1:1.8, Load5:2.07, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000174a20)}}
+2019-01-02 15:03:38.584 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:03:42.493 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:66.33416458852868, Load1:1.73, Load5:2.05, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000175020)}}
+2019-01-02 15:03:42.495 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:03:47.694 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:96.7741935483871, Load1:1.84, Load5:2.06, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000175320)}}
+2019-01-02 15:03:47.697 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:03:53.110 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:36.069651741293534, Load1:2.25, Load5:2.14, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00018d4a0)}}
+2019-01-02 15:03:53.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:03:58.101 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:36.069651741293534, Load1:2.31, Load5:2.16, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a6de0)}}
+2019-01-02 15:03:58.106 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:03.113 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:24.75, Load1:2.52, Load5:2.21, Load15:2.26, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00018d860)}}
+2019-01-02 15:04:03.114 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:08.100 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:38.287153652392945, Load1:2.64, Load5:2.24, Load15:2.27, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a73e0)}}
+2019-01-02 15:04:08.109 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:13.101 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:23, Load1:2.75, Load5:2.26, Load15:2.27, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00030e240)}}
+2019-01-02 15:04:13.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:18.098 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:24.75, Load1:2.61, Load5:2.24, Load15:2.27, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000438360)}}
+2019-01-02 15:04:18.099 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:23.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:22.194513715710723, Load1:2.48, Load5:2.22, Load15:2.26, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000438720)}}
+2019-01-02 15:04:23.113 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:28.099 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:23.88059701492537, Load1:2.52, Load5:2.23, Load15:2.26, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00030e960)}}
+2019-01-02 15:04:28.108 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:33.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:33.25062034739454, Load1:2.56, Load5:2.25, Load15:2.27, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007e1e0)}}
+2019-01-02 15:04:33.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:38.112 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:15.211970074812967, Load1:2.44, Load5:2.23, Load15:2.26, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0004390e0)}}
+2019-01-02 15:04:38.113 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:43.094 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:8.270676691729323, Load1:2.8, Load5:2.31, Load15:2.29, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000342780)}}
+2019-01-02 15:04:43.096 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:48.112 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:12.531328320802004, Load1:2.66, Load5:2.28, Load15:2.28, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000329a40)}}
+2019-01-02 15:04:48.114 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:53.101 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:8.415841584158416, Load1:2.6, Load5:2.28, Load15:2.28, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000439320)}}
+2019-01-02 15:04:53.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:04:58.101 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:15.25, Load1:2.47, Load5:2.26, Load15:2.27, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000344660)}}
+2019-01-02 15:04:58.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:03.101 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:27.611940298507463, Load1:2.44, Load5:2.25, Load15:2.27, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007f3e0)}}
+2019-01-02 15:05:03.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:08.097 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:12.468827930174564, Load1:2.24, Load5:2.22, Load15:2.25, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007fb60)}}
+2019-01-02 15:05:08.098 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:13.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:6.435643564356436, Load1:2.22, Load5:2.21, Load15:2.25, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000439b00)}}
+2019-01-02 15:05:13.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:18.096 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:18.271604938271604, Load1:2.2, Load5:2.21, Load15:2.25, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000343aa0)}}
+2019-01-02 15:05:18.098 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:23.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:8.229426433915211, Load1:2.11, Load5:2.19, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00037e000)}}
+2019-01-02 15:05:23.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:28.113 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:8.91089108910891, Load1:2.02, Load5:2.17, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007e180)}}
+2019-01-02 15:05:28.115 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:33.100 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:17.866004962779154, Load1:2.02, Load5:2.16, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a69c0)}}
+2019-01-02 15:05:33.109 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:38.098 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:3.99002493765586, Load1:2.26, Load5:2.21, Load15:2.25, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a6ba0)}}
+2019-01-02 15:05:38.099 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:43.099 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:12.060301507537687, Load1:2.15, Load5:2.19, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a7020)}}
+2019-01-02 15:05:43.100 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:48.106 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:14.392059553349876, Load1:2.06, Load5:2.17, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a75c0)}}
+2019-01-02 15:05:48.107 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:53.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:10.669975186104217, Load1:2.22, Load5:2.2, Load15:2.25, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a7800)}}
+2019-01-02 15:05:53.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:05:58.101 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:14.000000000000002, Load1:2.36, Load5:2.23, Load15:2.26, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a7980)}}
+2019-01-02 15:05:58.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:03.101 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:5.223880597014925, Load1:2.25, Load5:2.21, Load15:2.25, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007f740)}}
+2019-01-02 15:06:03.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:08.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:26.119402985074625, Load1:2.39, Load5:2.24, Load15:2.26, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007fb60)}}
+2019-01-02 15:06:08.110 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:13.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:9.950248756218906, Load1:2.28, Load5:2.22, Load15:2.25, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00018d1a0)}}
+2019-01-02 15:06:13.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:18.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:5.198019801980198, Load1:2.18, Load5:2.2, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000175ec0)}}
+2019-01-02 15:06:18.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:23.100 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:4.466501240694789, Load1:2.08, Load5:2.18, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00018d620)}}
+2019-01-02 15:06:23.106 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:28.099 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:4.228855721393035, Load1:2, Load5:2.16, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041e4e0)}}
+2019-01-02 15:06:28.100 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:33.101 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:4.228855721393035, Load1:2, Load5:2.15, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00030fbc0)}}
+2019-01-02 15:06:33.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:38.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:3.950617283950617, Load1:1.92, Load5:2.14, Load15:2.22, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041f140)}}
+2019-01-02 15:06:38.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:43.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:3, Load1:1.84, Load5:2.12, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041f380)}}
+2019-01-02 15:06:43.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:48.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:11.970074812967582, Load1:1.77, Load5:2.1, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00018dbc0)}}
+2019-01-02 15:06:48.113 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:53.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:16.33663366336634, Load1:1.87, Load5:2.11, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041fc80)}}
+2019-01-02 15:06:53.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:06:58.112 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:9.925558312655088, Load1:1.8, Load5:2.09, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000342060)}}
+2019-01-02 15:06:58.113 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:03.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:9.203980099502488, Load1:1.82, Load5:2.09, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0003446c0)}}
+2019-01-02 15:07:03.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:08.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:10.75, Load1:1.91, Load5:2.11, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000344a20)}}
+2019-01-02 15:07:08.106 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:13.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:7.4812967581047385, Load1:1.84, Load5:2.09, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000344ba0)}}
+2019-01-02 15:07:13.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:18.121 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:18.610421836228287, Load1:2.01, Load5:2.12, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000344f00)}}
+2019-01-02 15:07:18.123 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:23.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:12.935323383084576, Load1:2.09, Load5:2.13, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000366420)}}
+2019-01-02 15:07:23.106 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:28.107 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:11.471321695760599, Load1:2.08, Load5:2.13, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041e000)}}
+2019-01-02 15:07:28.108 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:33.107 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:7.98004987531172, Load1:2.08, Load5:2.13, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000438240)}}
+2019-01-02 15:07:33.109 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:38.109 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:15.829145728643216, Load1:2.15, Load5:2.14, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041e300)}}
+2019-01-02 15:07:38.112 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:43.135 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:19.851116625310176, Load1:2.06, Load5:2.12, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041e540)}}
+2019-01-02 15:07:43.137 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:48.107 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:15.25, Load1:2.05, Load5:2.12, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00018d4a0)}}
+2019-01-02 15:07:48.108 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:53.106 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:16.75, Load1:2.37, Load5:2.19, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041f140)}}
+2019-01-02 15:07:53.108 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:07:58.110 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:8.706467661691542, Load1:2.42, Load5:2.2, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041f560)}}
+2019-01-02 15:07:58.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:03.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:23.25, Load1:2.55, Load5:2.23, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0001752c0)}}
+2019-01-02 15:08:03.114 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:08.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:9.226932668329177, Load1:2.58, Load5:2.24, Load15:2.25, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000439080)}}
+2019-01-02 15:08:08.106 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:13.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:8.728179551122196, Load1:2.53, Load5:2.24, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00041f8c0)}}
+2019-01-02 15:08:13.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:18.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:7.444168734491314, Load1:2.41, Load5:2.22, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000439440)}}
+2019-01-02 15:08:18.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:23.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:31.017369727047146, Load1:2.3, Load5:2.2, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00030e060)}}
+2019-01-02 15:08:23.120 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:28.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:11.194029850746269, Load1:2.19, Load5:2.18, Load15:2.22, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007e660)}}
+2019-01-02 15:08:28.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:33.109 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:18.952618453865338, Load1:2.1, Load5:2.16, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007ec00)}}
+2019-01-02 15:08:33.110 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:38.120 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:34.1645885286783, Load1:2.1, Load5:2.16, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a6ae0)}}
+2019-01-02 15:08:38.121 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:43.113 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:30.730478589420656, Load1:2.09, Load5:2.15, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a6d80)}}
+2019-01-02 15:08:43.114 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:48.108 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:9.45273631840796, Load1:2.16, Load5:2.17, Load15:2.22, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007f500)}}
+2019-01-02 15:08:48.110 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:53.102 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:18.84422110552764, Load1:1.99, Load5:2.13, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000344780)}}
+2019-01-02 15:08:53.103 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:08:58.107 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:11.75, Load1:1.99, Load5:2.13, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a7380)}}
+2019-01-02 15:08:58.110 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:03.104 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:9.701492537313433, Load1:2.07, Load5:2.14, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00030f440)}}
+2019-01-02 15:09:03.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:08.116 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:30.65326633165829, Load1:2.06, Load5:2.14, Load15:2.21, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00007fc80)}}
+2019-01-02 15:09:08.117 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:13.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:19.602977667493796, Load1:1.98, Load5:2.12, Load15:2.2, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00030f7a0)}}
+2019-01-02 15:09:13.119 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:18.106 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:21.94513715710723, Load1:2.3, Load5:2.18, Load15:2.22, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0003453e0)}}
+2019-01-02 15:09:18.115 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:23.110 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:12.219451371571072, Load1:2.36, Load5:2.2, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00036e660)}}
+2019-01-02 15:09:23.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:28.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:4.987531172069826, Load1:2.41, Load5:2.21, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0003440c0)}}
+2019-01-02 15:09:28.120 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:33.105 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:36.88118811881188, Load1:2.38, Load5:2.21, Load15:2.23, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc000344480)}}
+2019-01-02 15:09:33.107 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:38.111 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:21.339950372208435, Load1:2.27, Load5:2.19, Load15:2.22, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc00030e540)}}
+2019-01-02 15:09:38.112 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:43.125 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:12.935323383084576, Load1:2.24, Load5:2.18, Load15:2.22, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a6960)}}
+2019-01-02 15:09:43.127 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-02 15:09:48.114 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) influx get cpu info succ, cpu:&collect_sys_info.CpuInfo{Percent:48.13895781637717, Load1:2.46, Load5:2.23, Load15:2.24, CpuCoreInfo:[]*collect_sys_info.CoreInfo{(*collect_sys_info.CoreInfo)(0xc0000a6de0)}}
+2019-01-02 15:09:48.115 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) insert cpu data to influx db succ
+2019-01-16 11:02:29.457 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) connect to kafka succ
+2019-01-16 11:02:29.457 DEBUG systransfer (file.go:xlog.(*XFile).LogDebug:87) get partition succ, partition:[]int32{0}

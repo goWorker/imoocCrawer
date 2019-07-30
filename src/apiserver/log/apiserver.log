@@ -1,0 +1,50 @@
+{"level":"INFO","timestamp":"2019-04-14 21:50:26.272","file":"apiserver/main.go:40","msg":"Start to listenting the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2019-04-14 21:50:26.274","file":"apiserver/main.go:38","msg":"The router has been deployed successfully."}
+{"level":"INFO","timestamp":"2019-04-14 22:00:14.143","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:15.145","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:16.146","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:17.148","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:18.153","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:19.159","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:20.162","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:21.164","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:22.165","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:23.168","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:24.170","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:25.173","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:26.177","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"INFO","timestamp":"2019-04-14 22:00:27.182","file":"apiserver/main.go:27","msg":"1111111111111111"}
+{"level":"ERROR","timestamp":"2019-04-22 09:22:09.375","file":"model/init.go:45","msg":"Database connection failed. Database name: db_apiserver","data":{"error":"sql: unknown driver \"mysql\" (forgotten import?)"}}
+{"level":"ERROR","timestamp":"2019-04-22 09:30:32.601","file":"model/init.go:45","msg":"Database connection failed. Database name: db_apiserver","data":{"error":"sql: unknown driver \"mysql\" (forgotten import?)"}}
+{"level":"ERROR","timestamp":"2019-04-22 09:34:52.817","file":"model/init.go:46","msg":"Database connection failed. Database name: db_apiserver","data":{"error":"this authentication plugin is not supported"}}
+{"level":"ERROR","timestamp":"2019-04-22 09:34:52.818","file":"model/init.go:46","msg":"Database connection failed. Database name: db_apiserver","data":{"error":"this authentication plugin is not supported"}}
+{"level":"INFO","timestamp":"2019-04-22 09:34:52.818","file":"apiserver/main.go:42","msg":"Start to listenting the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2019-04-22 09:34:52.819","file":"apiserver/main.go:40","msg":"The router has been deployed successfully."}
+{"level":"DEBUG","timestamp":"2019-04-22 09:36:02.376","file":"user/create.go:22","msg":"username is: [admin], password is []"}
+{"level":"DEBUG","timestamp":"2019-04-22 09:36:16.788","file":"user/create.go:22","msg":"username is: [], password is [admin]"}
+{"level":"ERROR","timestamp":"2019-04-22 09:36:16.788","file":"user/create.go:25","msg":"Get an error","data":{"error":"Err - code: 20102, message: The user was not found This is add message., error: username cannot  found in db: 127.0.0.1"}}
+{"level":"DEBUG","timestamp":"2019-04-22 09:36:16.788","file":"user/create.go:28","msg":"err type is ErrUserNotFound"}
+{"level":"DEBUG","timestamp":"2019-04-22 09:36:32.339","file":"user/create.go:22","msg":"username is: [], password is [admin]"}
+{"level":"ERROR","timestamp":"2019-04-22 09:36:32.339","file":"user/create.go:25","msg":"Get an error","data":{"error":"Err - code: 20102, message: The user was not found This is add message., error: username cannot  found in db: 127.0.0.1"}}
+{"level":"DEBUG","timestamp":"2019-04-22 09:36:32.339","file":"user/create.go:28","msg":"err type is ErrUserNotFound"}
+{"level":"DEBUG","timestamp":"2019-04-22 09:36:56.641","file":"user/create.go:22","msg":"username is: [admin], password is [admin]"}
+{"level":"ERROR","timestamp":"2019-04-24 09:12:10.351","file":"model/init.go:46","msg":"Database connection failed. Database name: db_apiserver","data":{"error":"this authentication plugin is not supported"}}
+{"level":"ERROR","timestamp":"2019-04-24 09:12:10.352","file":"model/init.go:46","msg":"Database connection failed. Database name: db_apiserver","data":{"error":"this authentication plugin is not supported"}}
+{"level":"INFO","timestamp":"2019-04-24 09:12:10.352","file":"apiserver/main.go:42","msg":"Start to listenting the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2019-04-24 09:12:10.353","file":"apiserver/main.go:40","msg":"The router has been deployed successfully."}
+{"level":"ERROR","timestamp":"2019-04-24 10:09:52.295","file":"model/init.go:46","msg":"Database connection failed. Database name: db_apiserver","data":{"error":"this authentication plugin is not supported"}}
+{"level":"ERROR","timestamp":"2019-04-24 10:09:52.296","file":"model/init.go:46","msg":"Database connection failed. Database name: db_apiserver","data":{"error":"this authentication plugin is not supported"}}
+{"level":"INFO","timestamp":"2019-04-24 10:09:52.296","file":"apiserver/main.go:42","msg":"Start to listenting the incoming requests on http address: :8080"}
+{"level":"INFO","timestamp":"2019-04-24 10:09:52.297","file":"apiserver/main.go:40","msg":"The router has been deployed successfully."}
+{"level":"INFO","timestamp":"2019-04-24 10:10:19.858","file":"user/create.go:18","msg":"URL Username: admin2"}
+{"level":"INFO","timestamp":"2019-04-24 10:10:19.858","file":"user/create.go:21","msg":"URL key param desc: test"}
+{"level":"INFO","timestamp":"2019-04-24 10:10:19.858","file":"user/create.go:24","msg":"Header Content-Type: application/json"}
+{"level":"DEBUG","timestamp":"2019-04-24 10:10:19.858","file":"user/create.go:26","msg":"username is: [admin], password is [admin]"}
+{"level":"INFO","timestamp":"2019-04-24 10:10:30.043","file":"user/create.go:18","msg":"URL Username: admin2"}
+{"level":"INFO","timestamp":"2019-04-24 10:10:30.043","file":"user/create.go:21","msg":"URL key param desc: test"}
+{"level":"INFO","timestamp":"2019-04-24 10:10:30.044","file":"user/create.go:24","msg":"Header Content-Type: application/json"}
+{"level":"DEBUG","timestamp":"2019-04-24 10:10:30.044","file":"user/create.go:26","msg":"username is: [admin], password is [admin]"}
+{"level":"INFO","timestamp":"2019-04-24 10:12:58.987","file":"user/create.go:18","msg":"URL Username: admin2"}
+{"level":"INFO","timestamp":"2019-04-24 10:12:58.987","file":"user/create.go:21","msg":"URL key param desc: test"}
+{"level":"INFO","timestamp":"2019-04-24 10:12:58.987","file":"user/create.go:24","msg":"Header Content-Type: application/json"}
+{"level":"DEBUG","timestamp":"2019-04-24 10:12:58.987","file":"user/create.go:26","msg":"username is: [admin], password is []"}
