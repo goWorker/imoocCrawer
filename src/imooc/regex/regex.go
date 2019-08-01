@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"regexp"
 )
 
@@ -30,6 +29,7 @@ const hukouRe = `<div class="m-btn purple" data-v-bff6f798="">工作地:阿坝�
 const incomeRe  = `<div class="m-btn purple" data-v-bff6f798="">月收入:1.2-2万</div>`
 const genderRe  = `<a href="http://www.zhenai.com/zhenghun/fangchenggang/nv">防城港女士征婚</a>`
 const cityRe  = `<a href="http://album.zhenai.com/u/1321512066" target="_blank">一场电影而已</a>`
+const city1Re  = `<a href="http://www.zhenai.com/zhenghun/langfang/2">2</a>`
 //func main() {
 //	re := regexp.MustCompile(`[a-zA-Z0-9]+@[a-zA-Z0-9.]+\.[a-zA-Z0-9]+`)
 //	match := re.FindAllString(text,-1)
@@ -80,12 +80,17 @@ func main() {
 	re9 := regexp.MustCompile(`<a href="(http://album.zhenai.com/u/[0-9]+)" [^>]+>([^<]+)</a>`)
 	match9 := re9.FindStringSubmatch(cityRe)
 	fmt.Println(match9)
-	resp, err := http.Get("http://album.zhenai.com/u/1163160974")
-	defer resp.Body.Close()
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("resp: %v",resp)
+
+	re10 := regexp.MustCompile(`<a href="(http://www.zhenai.com/zhenghun/[^"]+)"`)
+	match10 := re10.FindStringSubmatch(city1Re)
+	fmt.Println(match10)
+
+	//resp, err := http.Get("http://album.zhenai.com/u/1163160974")
+	//defer resp.Body.Close()
+	//if err != nil {
+	//	panic(err)
+	//}
+	//fmt.Printf("resp: %v",resp)
 
 }
 

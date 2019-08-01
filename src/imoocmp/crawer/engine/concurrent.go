@@ -1,46 +1,70 @@
 package engine
 
-import "log"
+import (
+	"imoocmp/crawer/model"
+	"log"
+)
 
 type ConcurrentEngine struct {
 	Scheduler Scheduler
 	WorkerCount int
 }
 type Scheduler interface {
+	ReadyNotifier
 	Submit(Request)
-	ConfigureMasterWorkerChan(chan Request)
+	WorkerChan() chan Request
+	Run()
+}
+type ReadyNotifier interface {
+	WorkerReady(chan Request)
 }
 
 func (e *ConcurrentEngine) Run(seeds ...Request){
 
-	in := make(chan Request)
+	//in := make(chan Request)
 	out := make(chan ParseResult)
-	e.Scheduler.ConfigureMasterWorkerChan(in)
+	e.Scheduler.Run()
 
 	for i := 0; i < e.WorkerCount; i ++ {
-		createWorker(in, out)
+		createWorker(e.Scheduler.WorkerChan(),out,e.Scheduler)
 	}
 
 	for _,r := range seeds{
+		if isDuplicate(r.Url){
+			//log.Printf("Duplicate request: %s",r.Url)
+			continue
+		}
 		e.Scheduler.Submit(r)
 	}
-	itemCount := 0
+	profikeCount := 0
 	for {
 		result := <- out
 		for _,item := range result.Items{
-			log.Printf("Got item: #%d:%v",itemCount,item)
-			itemCount++
+			if _,ok := item.(model.Profile); ok {
+				log.Printf("Got profile: #%d:%v",profikeCount,item)
+				profikeCount++
+			}
+
 		}
+		//url dedup
+
+
 		for _, request := range result.Requests {
+			if isDuplicate(request.Url){
+				//log.Printf("Duplicate request: %s",request.Url)
+				continue
+			}
 			e.Scheduler.Submit(request)
 		}
 	}
 
 }
 
-func createWorker(in chan Request, out chan ParseResult){
+func createWorker(in chan Request,out chan ParseResult,ready ReadyNotifier){
+	//in := make(chan Request)
 	go func() {
 		for {
+			ready.WorkerReady(in)
 			request := <- in
 			result, err :=worker(request)
 			if err != nil {
@@ -49,4 +73,14 @@ func createWorker(in chan Request, out chan ParseResult){
 			out <- result
 		}
 	}()
+}
+
+var visitedUrls = make(map[string]bool)
+
+func isDuplicate(url string) bool {
+	if visitedUrls[url] {
+		return true
+	}
+	visitedUrls[url] = true
+	return false
 }
