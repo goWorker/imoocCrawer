@@ -9,25 +9,25 @@ var (
 	localIP string
 )
 
-func GetLocalIP() (ip string,err error) {
+func GetLocalIP() (ip string, err error) {
 	if len(localIP) > 0 {
 		ip = localIP
 		return
 	}
-	addrs,err := net.InterfaceAddrs()
+	addrs, err := net.InterfaceAddrs()
 	if err != nil {
 		return
 	}
 
 	for _, addr := range addrs {
-		ipAddr,ok := addr.(*net.IPNet)
+		ipAddr, ok := addr.(*net.IPNet)
 		if !ok {
 			continue
 		}
 
 		if ipAddr.IP.IsLoopback() {
 			//continue
-			xlog.LogDebug("ip:%#v\n",ipAddr.IP.String())
+			xlog.LogDebug("ip:%#v\n", ipAddr.IP.String())
 			localIP = ipAddr.IP.String()
 			ip = localIP
 			return

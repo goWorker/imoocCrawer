@@ -16,17 +16,17 @@ import (
 )
 
 const (
-	SystemTypeCpu = "cpu"
-	SystemTypeMem = "mem"
+	SystemTypeCpu  = "cpu"
+	SystemTypeMem  = "mem"
 	SystemTypeDisk = "disk"
-	SystemTypeNet = "net"
-	SystemTypePro = "pro"
+	SystemTypeNet  = "net"
+	SystemTypePro  = "pro"
 )
 
 var (
 	collectSystemInfoTopic string
-	lastCollectUnixStamp int64
-	lastNetInfo *NetInfo
+	lastCollectUnixStamp   int64
+	lastNetInfo            *NetInfo
 )
 
 type PartitionStat struct {
@@ -35,9 +35,9 @@ type PartitionStat struct {
 	Fstype     string `json:"fstype"`
 	Opts       string `json:"opts"`
 
-	Total uint64 `json:"total"`
-	Free uint64 `json:"free"`
-	Used uint64 `json:"used"`
+	Total    uint64  `json:"total"`
+	Free     uint64  `json:"free"`
+	Used     uint64  `json:"used"`
 	UsedRate float64 `json:"used_rate"`
 
 	InodesTotal       uint64  `json:"inodesTotal"`
@@ -47,53 +47,53 @@ type PartitionStat struct {
 }
 
 type DiskIO struct {
-	ReadCount        uint64 `json:"readCount"`
-	WriteCount       uint64 `json:"writeCount"`
-	ReadBytes        uint64 `json:"readBytes"`
-	WriteBytes       uint64 `json:"writeBytes"`
+	ReadCount  uint64 `json:"readCount"`
+	WriteCount uint64 `json:"writeCount"`
+	ReadBytes  uint64 `json:"readBytes"`
+	WriteBytes uint64 `json:"writeBytes"`
 }
 
 type DiskInfo struct {
-	Partitions []PartitionStat	`json:"partitions"`
-	DiskIOMap map[string]DiskIO `json:"disk_io"`
+	Partitions []PartitionStat   `json:"partitions"`
+	DiskIOMap  map[string]DiskIO `json:"disk_io"`
 }
 
 type CpuInfo struct {
-	Percent float64 `json:"percent"`
-	Load1 float64	`json:"load1"`
-	Load5 float64	`json:"load5"`
-	Load15 float64	`json:"load15"`
+	Percent     float64     `json:"percent"`
+	Load1       float64     `json:"load1"`
+	Load5       float64     `json:"load5"`
+	Load15      float64     `json:"load15"`
 	CpuCoreInfo []*CoreInfo `json:"cpu_core_info"`
 }
 
 type MemInfo struct {
-	Total uint64 `json:"total"`
-	Free uint64 `json:"free"`
-	Used uint64 `json:"used"`
-	Cache uint64 `json:"cache"`
-	Buffer uint64 `json:"buffer"`
+	Total   uint64  `json:"total"`
+	Free    uint64  `json:"free"`
+	Used    uint64  `json:"used"`
+	Cache   uint64  `json:"cache"`
+	Buffer  uint64  `json:"buffer"`
 	UseRate float64 `json:"use_rate"`
 }
 
 type SystemInfo struct {
 	Type string `json:"type"`
-	IP string 		`json:"ip"`
+	IP   string `json:"ip"`
 	Data string `json:"data"`
 }
 
 type CoreInfo struct {
-	CPU        int32    `json:"cpu"`
-	VendorID   string   `json:"vendorId"`
-	Family     string   `json:"family"`
-	Model      string   `json:"model"`
-	ModelName  string   `json:"modelName"`
-	Mhz        float64  `json:"mhz"`
-	CacheSize  int32    `json:"cacheSize"`
-	CoresNum    int32   `json:"cores_num"`
+	CPU       int32   `json:"cpu"`
+	VendorID  string  `json:"vendorId"`
+	Family    string  `json:"family"`
+	Model     string  `json:"model"`
+	ModelName string  `json:"modelName"`
+	Mhz       float64 `json:"mhz"`
+	CacheSize int32   `json:"cacheSize"`
+	CoresNum  int32   `json:"cores_num"`
 }
 
 type IOCountersStat struct {
-	Name        string `json:"name"`        // interface name
+	Name            string  `json:"name"`             // interface name
 	BytesSentRate   float64 `json:"bytesSent_rate"`   // number of bytes sent
 	BytesRecvRate   float64 `json:"bytesRecv_rate"`   // number of bytes received
 	PacketsSentRate float64 `json:"packetsSent_rate"` // number of packets sent
@@ -116,13 +116,13 @@ type NetInfo struct {
 }
 
 type ProcessInfo struct {
-	Pid		int32 `json:"pid"`
-	Ppid	int32 `json:"ppid"`
-	User	string `json:"user"`
-	CPU 	float64 `json:"cpu"`
-	Mem		float32 `json:"mem"`
-	Sta 	string `json:"sta"`
-	Str 	string `json:"str"`
+	Pid  int32   `json:"pid"`
+	Ppid int32   `json:"ppid"`
+	User string  `json:"user"`
+	CPU  float64 `json:"cpu"`
+	Mem  float32 `json:"mem"`
+	Sta  string  `json:"sta"`
+	Str  string  `json:"str"`
 }
 
 func Run(wg *sync.WaitGroup, interval time.Duration, topic string) {
@@ -131,7 +131,7 @@ func Run(wg *sync.WaitGroup, interval time.Duration, topic string) {
 	timer := time.NewTicker(interval)
 	for {
 		select {
-		case <- timer.C:
+		case <-timer.C:
 			doCollect()
 		}
 	}
@@ -144,7 +144,7 @@ func doCollectCpu() {
 	cpuInfos, err := cpu.Info()
 	xlog.LogDebug("cpu info:%#v", cpuInfos)
 
-	percent, err:= cpu.Percent(time.Second, false)
+	percent, err := cpu.Percent(time.Second, false)
 	if err != nil {
 		xlog.LogError("collect cpu percent failed, err:%v", err)
 		return
@@ -172,7 +172,6 @@ func doCollectCpu() {
 		cpuInfo.CpuCoreInfo = append(cpuInfo.CpuCoreInfo, &coreInfo)
 	}
 
-
 	xlog.LogDebug("collect cpu succ, info:%#v", cpuInfo)
 	sendToKafka(SystemTypeCpu, &cpuInfo)
 }
@@ -197,7 +196,7 @@ func sendToKafka(systemType string, data interface{}) {
 	}
 
 	msg := &kafka.Message{
-		Data: string(jsonData),
+		Data:  string(jsonData),
 		Topic: collectSystemInfoTopic,
 	}
 
@@ -208,7 +207,7 @@ func sendToKafka(systemType string, data interface{}) {
 	}
 }
 
-func doCollectMem()  {
+func doCollectMem() {
 	mInfo, _ := mem.VirtualMemory()
 	var memInfo MemInfo
 
@@ -224,23 +223,22 @@ func doCollectMem()  {
 }
 
 func doCollectPro() {
-	Infos,_ := process.Processes()
-
-
+	Infos, _ := process.Processes()
 
 	for _, info := range Infos {
 		var processinfo ProcessInfo
-		processinfo.User,_ = info.Username()
-		processinfo.CPU,_ = info.CPUPercent()
-		processinfo.Mem,_ = info.MemoryPercent()
+		processinfo.User, _ = info.Username()
+		processinfo.CPU, _ = info.CPUPercent()
+		processinfo.Mem, _ = info.MemoryPercent()
 		processinfo.Pid = info.Pid
-		processinfo.Ppid,_ = info.Ppid()
-		processinfo.Sta,_ = info.Status()
-		processinfo.Str,_ = info.Name()
+		processinfo.Ppid, _ = info.Ppid()
+		processinfo.Sta, _ = info.Status()
+		processinfo.Str, _ = info.Name()
 	}
 	xlog.LogDebug("collect processed succ, info:%#v", Infos)
 	sendToKafka(SystemTypePro, &Infos)
 }
+
 //func doCollectDisk() {
 //
 //	var diskInfo DiskInfo
@@ -309,7 +307,7 @@ func doCollectNet() {
 
 		netInfo.NetInterfaces[ioStat.Name] = &ioStat
 
-		if lastCollectUnixStamp == 0 || lastNetInfo == nil{
+		if lastCollectUnixStamp == 0 || lastNetInfo == nil {
 			continue
 		}
 
@@ -319,10 +317,10 @@ func doCollectNet() {
 			continue
 		}
 
-		ioStat.BytesRecvRate = float64(ioStat.BytesRecv - lastInfo.BytesRecv) / float64(interval)
-		ioStat.BytesSentRate = float64(ioStat.BytesSent - lastInfo.BytesSent) / float64(interval)
-		ioStat.PacketsRecvRate = float64(ioStat.PacketsRecv - lastInfo.PacketsRecv) / float64(interval)
-		ioStat.PacketsSentRate  = float64(ioStat.PacketsSent - lastInfo.PacketsSent) / float64(interval)
+		ioStat.BytesRecvRate = float64(ioStat.BytesRecv-lastInfo.BytesRecv) / float64(interval)
+		ioStat.BytesSentRate = float64(ioStat.BytesSent-lastInfo.BytesSent) / float64(interval)
+		ioStat.PacketsRecvRate = float64(ioStat.PacketsRecv-lastInfo.PacketsRecv) / float64(interval)
+		ioStat.PacketsSentRate = float64(ioStat.PacketsSent-lastInfo.PacketsSent) / float64(interval)
 	}
 
 	lastNetInfo = &netInfo

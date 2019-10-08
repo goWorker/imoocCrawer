@@ -11,26 +11,26 @@ import (
 )
 
 type EtcdClient struct {
-	client *clientv3.Client
-	address []string
+	client   *clientv3.Client
+	address  []string
 	watchKey string
-	dataCh chan []*common.CollectConfig
+	dataCh   chan []*common.CollectConfig
 }
 
 var (
 	etcdClient *EtcdClient
 )
 
-func Init(address []string, watchKey string)(err error) {
-	etcdClient = &EtcdClient {
-		address: address,
-		watchKey:watchKey,
-		dataCh: make(chan []*common.CollectConfig),
+func Init(address []string, watchKey string) (err error) {
+	etcdClient = &EtcdClient{
+		address:  address,
+		watchKey: watchKey,
+		dataCh:   make(chan []*common.CollectConfig),
 	}
 
 	etcdClient.client, err = clientv3.New(clientv3.Config{
-		Endpoints: address,
-		DialTimeout:3 * time.Second,
+		Endpoints:   address,
+		DialTimeout: 3 * time.Second,
 	})
 
 	if err != nil {
@@ -49,8 +49,8 @@ func (e *EtcdClient) watch() {
 		for v := range resultCh {
 			xlog.LogDebug("wacth return, v:%v", v)
 			if v.Err() != nil {
-				xlog.LogError("watch:%s failed, err:%v\n",e.watchKey, v.Err())
-				continue;
+				xlog.LogError("watch:%s failed, err:%v\n", e.watchKey, v.Err())
+				continue
 			}
 
 			for _, event := range v.Events {
@@ -73,19 +73,19 @@ func (e *EtcdClient) watch() {
 	}
 }
 
-func Watch() <- chan []*common.CollectConfig{
+func Watch() <-chan []*common.CollectConfig {
 
 	return etcdClient.dataCh
 }
 
 func GetCollectSystemInfoConfig(key string) (conf *common.CollectSystemInfoConfig, err error) {
-	resp , err := etcdClient.client.Get(context.Background(), key)
+	resp, err := etcdClient.client.Get(context.Background(), key)
 	if err != nil {
 		xlog.LogError("get key:%s from etcd failed, err:%v", key, err)
 		return
 	}
 
-	if (len(resp.Kvs) == 0) {
+	if len(resp.Kvs) == 0 {
 		xlog.LogError("get key:%s from etcd failed, len(resp.kvs)=0", key)
 		err = fmt.Errorf("not found value of %s", key)
 		return
@@ -111,13 +111,13 @@ func GetConfig(key string) (conf []*common.CollectConfig, err error) {
 		cancel()
 	}()
 
-	resp , err := etcdClient.client.Get(ctx, key)
+	resp, err := etcdClient.client.Get(ctx, key)
 	if err != nil {
 		xlog.LogError("get key:%s from etcd failed, err:%v", key, err)
 		return
 	}
 
-	if (len(resp.Kvs) == 0) {
+	if len(resp.Kvs) == 0 {
 		xlog.LogError("get key:%s from etcd failed, len(resp.kvs)=0", key)
 		return
 	}

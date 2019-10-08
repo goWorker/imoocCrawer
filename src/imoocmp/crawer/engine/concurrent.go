@@ -6,7 +6,7 @@ import (
 )
 
 type ConcurrentEngine struct {
-	Scheduler Scheduler
+	Scheduler   Scheduler
 	WorkerCount int
 }
 type Scheduler interface {
@@ -19,18 +19,18 @@ type ReadyNotifier interface {
 	WorkerReady(chan Request)
 }
 
-func (e *ConcurrentEngine) Run(seeds ...Request){
+func (e *ConcurrentEngine) Run(seeds ...Request) {
 
 	//in := make(chan Request)
 	out := make(chan ParseResult)
 	e.Scheduler.Run()
 
-	for i := 0; i < e.WorkerCount; i ++ {
-		createWorker(e.Scheduler.WorkerChan(),out,e.Scheduler)
+	for i := 0; i < e.WorkerCount; i++ {
+		createWorker(e.Scheduler.WorkerChan(), out, e.Scheduler)
 	}
 
-	for _,r := range seeds{
-		if isDuplicate(r.Url){
+	for _, r := range seeds {
+		if isDuplicate(r.Url) {
 			//log.Printf("Duplicate request: %s",r.Url)
 			continue
 		}
@@ -38,19 +38,18 @@ func (e *ConcurrentEngine) Run(seeds ...Request){
 	}
 	profikeCount := 0
 	for {
-		result := <- out
-		for _,item := range result.Items{
-			if _,ok := item.(model.Profile); ok {
-				log.Printf("Got profile: #%d:%v",profikeCount,item)
+		result := <-out
+		for _, item := range result.Items {
+			if _, ok := item.(model.Profile); ok {
+				log.Printf("Got profile: #%d:%v", profikeCount, item)
 				profikeCount++
 			}
 
 		}
 		//url dedup
 
-
 		for _, request := range result.Requests {
-			if isDuplicate(request.Url){
+			if isDuplicate(request.Url) {
 				//log.Printf("Duplicate request: %s",request.Url)
 				continue
 			}
@@ -60,13 +59,13 @@ func (e *ConcurrentEngine) Run(seeds ...Request){
 
 }
 
-func createWorker(in chan Request,out chan ParseResult,ready ReadyNotifier){
+func createWorker(in chan Request, out chan ParseResult, ready ReadyNotifier) {
 	//in := make(chan Request)
 	go func() {
 		for {
 			ready.WorkerReady(in)
-			request := <- in
-			result, err :=worker(request)
+			request := <-in
+			result, err := worker(request)
 			if err != nil {
 				continue
 			}

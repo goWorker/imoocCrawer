@@ -6,22 +6,22 @@ import (
 	"os"
 )
 
-func outline(stack []string, n *html.Node){
+func outline(stack []string, n *html.Node) {
 	if n.Type == html.ElementNode {
-		stack = append(stack,n.Data)
+		stack = append(stack, n.Data)
 		fmt.Println(stack)
 	}
-	for c := n.FirstChild; c != nil; c = c.NextSibling{
-		outline(stack,c)
+	for c := n.FirstChild; c != nil; c = c.NextSibling {
+		outline(stack, c)
 	}
 
 }
 
-func main()  {
-	doc,err := html.Parse(os.Stdin)
+func main() {
+	doc, err := html.Parse(os.Stdin)
 	if err != nil {
-		fmt.Fprintf(os.Stderr,"outline:%v\n",err)
+		fmt.Fprintf(os.Stderr, "outline:%v\n", err)
 		os.Exit(1)
 	}
-	outline(nil,doc)
+	outline(nil, doc)
 }

@@ -30,7 +30,7 @@ func initConfig(filename string) (err error) {
 	return
 }
 
-func run(collectSystemInfoConfig *common.CollectSystemInfoConfig) (err error){
+func run(collectSystemInfoConfig *common.CollectSystemInfoConfig) (err error) {
 
 	waitGroup.Add(2)
 	go collect_sys_info.Run(&waitGroup, collectSystemInfoConfig.Interval, collectSystemInfoConfig.Topic)

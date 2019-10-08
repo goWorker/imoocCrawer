@@ -7,16 +7,16 @@ import (
 )
 
 var (
-	client sarama.SyncProducer
+	client  sarama.SyncProducer
 	msgChan chan *Message
 )
 
 type Message struct {
-	Data string
+	Data  string
 	Topic string
 }
 
-func Init(address []string, chanSize int) (err error){
+func Init(address []string, chanSize int) (err error) {
 
 	config := sarama.NewConfig()
 	config.Producer.RequiredAcks = sarama.WaitForAll
@@ -33,16 +33,16 @@ func Init(address []string, chanSize int) (err error){
 	go sendKafka()
 	return
 	/*
-	defer client.Close()
-	for {
-		pid, offset, err := client.SendMessage(msg)
-		if err != nil {
-			fmt.Println("send message failed,", err)
-			return
+		defer client.Close()
+		for {
+			pid, offset, err := client.SendMessage(msg)
+			if err != nil {
+				fmt.Println("send message failed,", err)
+				return
+			}
+			fmt.Printf("pid:%v offset:%v\n", pid, offset)
+			time.Sleep(time.Second)
 		}
-		fmt.Printf("pid:%v offset:%v\n", pid, offset)
-		time.Sleep(time.Second)
-	}
 	*/
 }
 
@@ -50,9 +50,8 @@ func sendKafka() {
 	for msg := range msgChan {
 
 		kafkaMsg := &sarama.ProducerMessage{}
-		kafkaMsg.Topic =  msg.Topic
+		kafkaMsg.Topic = msg.Topic
 		kafkaMsg.Value = sarama.StringEncoder(msg.Data)
-
 
 		pid, offset, err := client.SendMessage(kafkaMsg)
 		if err != nil {

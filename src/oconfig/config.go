@@ -1,11 +1,11 @@
 package oconfig
 
 import (
-	"strconv"
-	"strings"
+	"fmt"
 	"io/ioutil"
 	"reflect"
-	"fmt"
+	"strconv"
+	"strings"
 )
 
 func UnMarshal(data []byte, result interface{}) (err error) {
@@ -18,7 +18,6 @@ func UnMarshal(data []byte, result interface{}) (err error) {
 	if kind != reflect.Ptr {
 		panic("please pass a address")
 	}
-
 
 	var sectionName string
 	lines := strings.Split(string(data), "\n")
@@ -37,12 +36,12 @@ func UnMarshal(data []byte, result interface{}) (err error) {
 		//fmt.Printf("line:%s\n", line)
 		if line[0] == '[' {
 			//解析section/group
-			if len(line) <= 2  || line[len(line)-1] != ']' {
+			if len(line) <= 2 || line[len(line)-1] != ']' {
 				tips := fmt.Sprintf("syntax error, invalid section:\"%s\" line:%d", line, lineNo)
 				panic(tips)
 			}
 
-			sectionName = strings.TrimSpace(line[1:len(line)-1])
+			sectionName = strings.TrimSpace(line[1 : len(line)-1])
 			if len(sectionName) == 0 {
 				tips := fmt.Sprintf("syntax error, invalid section:\"%s\" line:%d", line, lineNo)
 				panic(tips)
@@ -64,13 +63,13 @@ func UnMarshal(data []byte, result interface{}) (err error) {
 			key := strings.TrimSpace(line[0:index])
 			value := strings.TrimSpace(line[index+1:])
 
-			if len(key)  == 0 {
+			if len(key) == 0 {
 				tips := fmt.Sprintf("syntax error, not found =, line:%s, lineNo:%d", line, lineNo)
 				panic(tips)
 			}
 
 			//1. 找到sectionName在result中对应的结构体s1
-			for i := 0; i <t.Elem().NumField(); i++ {
+			for i := 0; i < t.Elem().NumField(); i++ {
 				//field := v.Field(i)
 				tfield := t.Elem().Field(i)
 				vField := v.Elem().Field(i)
@@ -134,7 +133,7 @@ func UnMarshalFile(filename string, result interface{}) (err error) {
 	return UnMarshal(data, result)
 }
 
-func Marshal(result interface{})(data []byte, err error) {
+func Marshal(result interface{}) (data []byte, err error) {
 
 	t := reflect.TypeOf(result)
 	v := reflect.ValueOf(result)
@@ -153,7 +152,7 @@ func Marshal(result interface{})(data []byte, err error) {
 		}
 
 		sectionName := tField.Name
-		if len(tField.Tag.Get("ini")) > 0  {
+		if len(tField.Tag.Get("ini")) > 0 {
 			sectionName = tField.Tag.Get("ini")
 		}
 
@@ -162,7 +161,7 @@ func Marshal(result interface{})(data []byte, err error) {
 		for j := 0; j < tField.Type.NumField(); j++ {
 			//1. 拿到类型信息
 			subTField := tField.Type.Field(j)
-			if subTField.Type.Kind() == reflect.Struct || subTField.Type.Kind() == reflect.Ptr{
+			if subTField.Type.Kind() == reflect.Struct || subTField.Type.Kind() == reflect.Ptr {
 				//跳过结构体字段
 				continue
 			}

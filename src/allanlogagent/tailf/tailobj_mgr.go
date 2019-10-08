@@ -7,21 +7,20 @@ import (
 )
 
 type TailTaskMgr struct {
-
-	tailTaskMap map[string]*TailTask
+	tailTaskMap    map[string]*TailTask
 	collectLogList []*common.CollectConfig
-	etcdCh <- chan []*common.CollectConfig
+	etcdCh         <-chan []*common.CollectConfig
 }
 
 var (
 	tailTaskMgr *TailTaskMgr
 )
 
-func Init(collectLogList []*common.CollectConfig, etcdCh <- chan []*common.CollectConfig) (err error) {
-	tailTaskMgr = &TailTaskMgr {
+func Init(collectLogList []*common.CollectConfig, etcdCh <-chan []*common.CollectConfig) (err error) {
+	tailTaskMgr = &TailTaskMgr{
 		collectLogList: collectLogList,
-		etcdCh: etcdCh,
-		tailTaskMap:make(map[string]*TailTask, 16),
+		etcdCh:         etcdCh,
+		tailTaskMap:    make(map[string]*TailTask, 16),
 	}
 
 	for _, conf := range collectLogList {
@@ -55,7 +54,7 @@ func (t *TailTaskMgr) run() {
 
 	for {
 		t.listTask()
-		tmpCollectLogList := <- t.etcdCh
+		tmpCollectLogList := <-t.etcdCh
 		xlog.LogDebug("你好，有新的配置变更, data:%#v", tmpCollectLogList)
 
 		//判断是否有新增的日志收集配置
@@ -87,7 +86,7 @@ func (t *TailTaskMgr) run() {
 				if task.Path == conf.Path &&
 					task.ModuleName == conf.ModuleName &&
 					task.Topic == conf.Topic {
-					found =  true
+					found = true
 					break
 				}
 			}
@@ -95,21 +94,21 @@ func (t *TailTaskMgr) run() {
 			if found == false {
 				//需要把这个任务取消，并且从tailTaskList删除
 				task.Stop()
-				delete(t.tailTaskMap,key)
+				delete(t.tailTaskMap, key)
 				/*
-								prevTask := t.tailTaskList[0:index]
-								nextTask := t.tailTaskList[index+1:]
-								var taskList []*TailTask
-								taskList = append(taskList, prevTask...)
-								taskList = append(taskList, nextTask...)
-								t.tailTaskList = taskList
-								*/
+					prevTask := t.tailTaskList[0:index]
+					nextTask := t.tailTaskList[index+1:]
+					var taskList []*TailTask
+					taskList = append(taskList, prevTask...)
+					taskList = append(taskList, nextTask...)
+					t.tailTaskList = taskList
+				*/
 			}
 		}
 	}
 }
 
-func (t *TailTaskMgr) exists(conf *common.CollectConfig) (bool) {
+func (t *TailTaskMgr) exists(conf *common.CollectConfig) bool {
 
 	for _, tailTask := range t.tailTaskMap {
 		if tailTask.Path == conf.Path &&
@@ -121,8 +120,6 @@ func (t *TailTaskMgr) exists(conf *common.CollectConfig) (bool) {
 
 	return false
 }
-
-
 
 func Run(wg *sync.WaitGroup) {
 	//tailTaskMgr主要做一些日志任务收集的管理工作，比如新增日志收集任务、删除日志收集任务

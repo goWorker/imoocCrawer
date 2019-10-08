@@ -7,8 +7,8 @@ import (
 	"os"
 )
 
-func findLinks(url string )([]string, error){
-	resp,err := http.Get(url)
+func findLinks(url string) ([]string, error) {
+	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
 	}
@@ -25,7 +25,6 @@ func findLinks(url string )([]string, error){
 	return visit(nil, doc), nil
 }
 
-
 func visit(links []string, n *html.Node) []string {
 	if n.Type == html.ElementNode && n.Data == "a" {
 		for _, a := range n.Attr {
@@ -40,11 +39,11 @@ func visit(links []string, n *html.Node) []string {
 	return links
 }
 
-func main(){
+func main() {
 	for _, url := range os.Args[1:] {
 		links, err := findLinks(url)
 		if err != nil {
-			fmt.Fprintf(os.Stderr,"findlinks2: %v\n",err)
+			fmt.Fprintf(os.Stderr, "findlinks2: %v\n", err)
 			continue
 		}
 		for _, link := range links {
@@ -53,7 +52,7 @@ func main(){
 	}
 }
 
-func CountWordsAndImages(url string) (words,images int, err error) {
+func CountWordsAndImages(url string) (words, images int, err error) {
 	resp, err := http.Get(url)
 	if err != nil {
 		return
@@ -61,16 +60,16 @@ func CountWordsAndImages(url string) (words,images int, err error) {
 	doc, err := html.Parse(resp.Body)
 	resp.Body.Close()
 	if err != nil {
-		err = fmt.Errorf("Parsing HTML: %s",err)
+		err = fmt.Errorf("Parsing HTML: %s", err)
 		return
 	}
-	words,images = countWordsAndImages(doc)
+	words, images = countWordsAndImages(doc)
 	return
 }
 
 func countWordsAndImages(n *html.Node) (words, images int) {
 	/*
-	...
-	 */
-	 return
+		...
+	*/
+	return
 }

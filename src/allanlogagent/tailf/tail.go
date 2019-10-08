@@ -11,12 +11,12 @@ import (
 )
 
 type TailTask struct {
-	Path string
+	Path       string
 	ModuleName string
-	Topic string
-	tailx *tail.Tail
-	ctx context.Context
-	cancel context.CancelFunc
+	Topic      string
+	tailx      *tail.Tail
+	ctx        context.Context
+	cancel     context.CancelFunc
 }
 
 var localIP string
@@ -30,8 +30,7 @@ func init() {
 	}
 }
 
-
-func NewTailTask(path, module, topic string)(tailTask *TailTask, err error) {
+func NewTailTask(path, module, topic string) (tailTask *TailTask, err error) {
 	tailTask = &TailTask{}
 	err = tailTask.Init(path, module, topic)
 	return
@@ -59,7 +58,7 @@ func (t *TailTask) Init(path, module, topic string) (err error) {
 	return
 }
 
-func (t *TailTask) Key() string{
+func (t *TailTask) Key() string {
 	key := fmt.Sprintf("%s_%s_%s", t.Path, t.ModuleName, t.Topic)
 	return key
 }
@@ -71,10 +70,10 @@ func (t *TailTask) Stop() {
 func (t *TailTask) Run() {
 	for {
 		select {
-		case <- t.ctx.Done():
+		case <-t.ctx.Done():
 			xlog.LogWarn("task path:%s module:%s topic:%s is exit", t.Path, t.ModuleName, t.Topic)
 			return
-		case line, ok := <- t.tailx.Lines:
+		case line, ok := <-t.tailx.Lines:
 			if !ok {
 				xlog.LogWarn("get message from tailf failed")
 				continue
@@ -86,7 +85,7 @@ func (t *TailTask) Run() {
 
 			xlog.LogDebug("line:%s", line.Text)
 			data := &common.LogAgentData{
-				IP: localIP,
+				IP:   localIP,
 				Data: line.Text,
 			}
 
@@ -96,7 +95,7 @@ func (t *TailTask) Run() {
 			}
 
 			msg := &kafka.Message{
-				Data: string(jsonData),
+				Data:  string(jsonData),
 				Topic: t.Topic,
 			}
 

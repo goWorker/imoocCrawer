@@ -8,10 +8,10 @@ import (
 
 func main() {
 	e := engine.ConcurrentEngine{
-		Scheduler: &scheduler.QueuedScheduler{},
-		WorkerCount:10,}
+		Scheduler:   &scheduler.QueuedScheduler{},
+		WorkerCount: 10}
 	e.Run(engine.Request{
-		Url:"http://www.zhenai.com/zhenghun",
+		Url:        "http://www.zhenai.com/zhenghun",
 		ParserFunc: parser.ParseCityList,
 	})
 	//e.Run(engine.Request{
