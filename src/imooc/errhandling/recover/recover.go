@@ -38,4 +38,3 @@ func tryRecover() {
 func main() {
 	tryRecover()
 }
-

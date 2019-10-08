@@ -19,17 +19,18 @@ const text = "my email is allanyang@juniper.net " +
 	"EMAIL is adv@cd.com" +
 	"email is ll@qq.com " +
 	" email is abd@ddd.com.cn"
-const div  = "<div class=\"m-btn purple\" data-v-bff6f798=\"\">离异</div>"
+const div = "<div class=\"m-btn purple\" data-v-bff6f798=\"\">离异</div>"
 const ageRe = `<div class="m-btn purple" data-v-bff6f798="">28岁</div>`
-const marriageRe  = `<div class="m-btn purple" data-v-[0-9a-z]="">(离异|未婚|丧偶)</div>`
+const marriageRe = `<div class="m-btn purple" data-v-[0-9a-z]="">(离异|未婚|丧偶)</div>`
 const xingzuoRe = `<div class="m-btn purple" data-v-bff6f798="">魔羯座(12.22-01.19)</div>`
-const heightRe=`<div class="m-btn purple" data-v-bff6f798="">172cm</div>`
-const weightRe  = `<div class="m-btn purple" data-v-bff6f798="">60kg</div>`
+const heightRe = `<div class="m-btn purple" data-v-bff6f798="">172cm</div>`
+const weightRe = `<div class="m-btn purple" data-v-bff6f798="">60kg</div>`
 const hukouRe = `<div class="m-btn purple" data-v-bff6f798="">工作地:阿坝马尔康</div>`
-const incomeRe  = `<div class="m-btn purple" data-v-bff6f798="">月收入:1.2-2万</div>`
-const genderRe  = `<a href="http://www.zhenai.com/zhenghun/fangchenggang/nv">防城港女士征婚</a>`
-const cityRe  = `<a href="http://album.zhenai.com/u/1321512066" target="_blank">一场电影而已</a>`
-const city1Re  = `<a href="http://www.zhenai.com/zhenghun/langfang/2">2</a>`
+const incomeRe = `<div class="m-btn purple" data-v-bff6f798="">月收入:1.2-2万</div>`
+const genderRe = `<a href="http://www.zhenai.com/zhenghun/fangchenggang/nv">防城港女士征婚</a>`
+const cityRe = `<a href="http://album.zhenai.com/u/1321512066" target="_blank">一场电影而已</a>`
+const city1Re = `<a href="http://www.zhenai.com/zhenghun/langfang/2">2</a>`
+
 //func main() {
 //	re := regexp.MustCompile(`[a-zA-Z0-9]+@[a-zA-Z0-9.]+\.[a-zA-Z0-9]+`)
 //	match := re.FindAllString(text,-1)
@@ -39,9 +40,9 @@ const city1Re  = `<a href="http://www.zhenai.com/zhenghun/langfang/2">2</a>`
 //}
 func main() {
 	re := regexp.MustCompile(`([a-zA-Z0-9]+)@([a-zA-Z0-9]+)(\.[a-zA-Z0-9.]+)`)
-	match := re.FindAllStringSubmatch(text,-1)
+	match := re.FindAllStringSubmatch(text, -1)
 	//fmt.Println(match)
-	for _, m := range match{
+	for _, m := range match {
 		fmt.Println(m)
 	}
 
@@ -93,4 +94,3 @@ func main() {
 	//fmt.Printf("resp: %v",resp)
 
 }
-

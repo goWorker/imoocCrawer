@@ -14,9 +14,10 @@ import (
 	"time"
 )
 
-const url  = "http://www.zhenai.com/zhenghun"
-func Fetch(url string) ([]byte,error){
-	resp, err := http.NewRequest("GET",url,nil)
+const url = "http://www.zhenai.com/zhenghun"
+
+func Fetch(url string) ([]byte, error) {
+	resp, err := http.NewRequest("GET", url, nil)
 	resp.Header.Set("User-Agent", GetRandomUserAgent())
 	if err != nil {
 		return nil, err
@@ -26,31 +27,29 @@ func Fetch(url string) ([]byte,error){
 	res, err := client.Do(resp)
 	if err != nil {
 		//fmt.Errorf("Get请求%s返回错误:%s", url, err)
-		return nil,err
+		return nil, err
 	}
 
-	if res.StatusCode != http.StatusOK{
-		return nil, fmt.Errorf("wrong status code: %d",res.StatusCode)
+	if res.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("wrong status code: %d", res.StatusCode)
 	}
-
 
 	body := res.Body
 	defer body.Close()
 	bodyReader := bufio.NewReader(body)
 	e := determineEncoding(bodyReader)
-	utf8Reader := transform.NewReader(bodyReader,e.NewDecoder())
+	utf8Reader := transform.NewReader(bodyReader, e.NewDecoder())
 	return ioutil.ReadAll(utf8Reader)
 
 }
 
-
-func determineEncoding(r *bufio.Reader) encoding.Encoding{
+func determineEncoding(r *bufio.Reader) encoding.Encoding {
 	bytes, err := r.Peek(1024)
 	if err != nil {
-		log.Printf("Fetch error: %v",err)
+		log.Printf("Fetch error: %v", err)
 		return unicode.UTF8
 	}
-	e,_,_ := charset.DetermineEncoding(bytes,"")
+	e, _, _ := charset.DetermineEncoding(bytes, "")
 	return e
 }
 
@@ -70,6 +69,7 @@ var userAgent = [...]string{"Mozilla/5.0 (compatible, MSIE 10.0, Windows NT, Dig
 	"MQQBrowser/26 Mozilla/5.0 (Linux, U, Android 2.3.7, zh-cn, MB200 Build/GRJ22, CyanogenMod-7) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"}
 
 var r = rand.New(rand.NewSource(time.Now().UnixNano()))
+
 func GetRandomUserAgent() string {
 	return userAgent[r.Intn(len(userAgent))]
 }

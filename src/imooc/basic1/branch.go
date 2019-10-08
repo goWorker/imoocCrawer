@@ -7,7 +7,7 @@ import (
 
 func grade(score int) string {
 	g := ""
-	switch  {
+	switch {
 	case score < 60:
 		g = "F"
 	case score < 80:
@@ -23,12 +23,12 @@ func grade(score int) string {
 }
 
 func main() {
-	const filename  = "abc.txt"
+	const filename = "abc.txt"
 	contents, err := ioutil.ReadFile(filename)
 	if err != nil {
 		fmt.Println(err)
-	}else {
+	} else {
 		fmt.Printf("%s\n", contents)
 	}
-	fmt.Println(grade(0),grade(59),grade(60),grade(89),grade(100))
+	fmt.Println(grade(0), grade(59), grade(60), grade(89), grade(100))
 }

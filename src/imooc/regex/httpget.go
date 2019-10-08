@@ -16,7 +16,7 @@ func Spy(url string) {
 		}
 	}()
 	req, _ := http.NewRequest("GET", url, nil)
-	fmt.Printf("UserAgent: %s",GetRandomUserAgent())
+	fmt.Printf("UserAgent: %s", GetRandomUserAgent())
 	fmt.Println()
 	fmt.Println()
 	fmt.Println()
@@ -47,6 +47,7 @@ func Spy(url string) {
 		//}
 	}
 }
+
 var userAgent = [...]string{"Mozilla/5.0 (compatible, MSIE 10.0, Windows NT, DigExt)",
 	"Mozilla/4.0 (compatible, MSIE 7.0, Windows NT 5.1, 360SE)",
 	"Mozilla/4.0 (compatible, MSIE 8.0, Windows NT 6.0, Trident/4.0)",
@@ -63,10 +64,11 @@ var userAgent = [...]string{"Mozilla/5.0 (compatible, MSIE 10.0, Windows NT, Dig
 	"MQQBrowser/26 Mozilla/5.0 (Linux, U, Android 2.3.7, zh-cn, MB200 Build/GRJ22, CyanogenMod-7) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"}
 
 var r = rand.New(rand.NewSource(time.Now().UnixNano()))
+
 func GetRandomUserAgent() string {
 	return userAgent[r.Intn(len(userAgent))]
 }
 
-func main()  {
+func main() {
 	Spy("http://www.zhenai.com/zhenghun/aba")
 }

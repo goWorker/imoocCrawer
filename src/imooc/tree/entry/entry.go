@@ -7,9 +7,9 @@ import (
 
 func main() {
 	var root tree.TreeNode
-	root = tree.TreeNode{Value:3}
+	root = tree.TreeNode{Value: 3}
 	root.Left = &tree.TreeNode{}
-	root.Right = &tree.TreeNode{5,nil,nil}
+	root.Right = &tree.TreeNode{5, nil, nil}
 	root.Right.Left = new(tree.TreeNode)
 	//nodes := []TreeNode{
 	//	{value:3},

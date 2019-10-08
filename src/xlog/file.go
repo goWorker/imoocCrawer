@@ -1,6 +1,5 @@
 package xlog
 
-
 import (
 	"fmt"
 	"os"
@@ -10,11 +9,11 @@ import (
 
 type XFile struct {
 	filename string
-	file *os.File
+	file     *os.File
 	*XLogBase
 
-	logChan  chan *LogData
-	wg *sync.WaitGroup
+	logChan chan *LogData
+	wg      *sync.WaitGroup
 	curHour int
 }
 
@@ -24,8 +23,8 @@ func NewXFile(level int, filename, module string) XLog {
 	}
 
 	logger.XLogBase = &XLogBase{
-		level : level,
-		module : module,
+		level:  level,
+		module: module,
 	}
 
 	logger.curHour = time.Now().Hour()
@@ -45,7 +44,7 @@ func (c *XFile) Init() (err error) {
 	return
 }
 
-func (c *XFile)syncLog() {
+func (c *XFile) syncLog() {
 
 	for data := range c.logChan {
 		c.splitLog()
@@ -95,8 +94,8 @@ func (c *XFile) LogTrace(format string, args ...interface{}) {
 
 	c.writeToChan(XLogLevelTrace, c.module, format, args...)
 	/*
-	logData := c.formatLogger(XLogLevelTrace, c.module, format, args...)
-	c.writeLog(c.file, logData)
+		logData := c.formatLogger(XLogLevelTrace, c.module, format, args...)
+		c.writeLog(c.file, logData)
 	*/
 }
 
@@ -107,8 +106,8 @@ func (c *XFile) LogInfo(format string, args ...interface{}) {
 
 	c.writeToChan(XLogLevelInfo, c.module, format, args...)
 	/*
-	logData := c.formatLogger(XLogLevelInfo, c.module, format, args...)
-	c.writeLog(c.file, logData)
+		logData := c.formatLogger(XLogLevelInfo, c.module, format, args...)
+		c.writeLog(c.file, logData)
 	*/
 }
 
@@ -119,8 +118,8 @@ func (c *XFile) LogWarn(format string, args ...interface{}) {
 
 	c.writeToChan(XLogLevelWarn, c.module, format, args...)
 	/*
-	logData := c.formatLogger(XLogLevelWarn, c.module, format, args...)
-	c.writeLog(c.file, logData)
+		logData := c.formatLogger(XLogLevelWarn, c.module, format, args...)
+		c.writeLog(c.file, logData)
 	*/
 }
 
@@ -131,8 +130,8 @@ func (c *XFile) LogError(format string, args ...interface{}) {
 
 	c.writeToChan(XLogLevelError, c.module, format, args...)
 	/*
-	logData := c.formatLogger(XLogLevelError, c.module, format, args...)
-	c.writeLog(c.file, logData)
+		logData := c.formatLogger(XLogLevelError, c.module, format, args...)
+		c.writeLog(c.file, logData)
 	*/
 }
 
@@ -143,8 +142,8 @@ func (c *XFile) LogFatal(format string, args ...interface{}) {
 
 	c.writeToChan(XLogLevelFatal, c.module, format, args...)
 	/*
-	logData := c.formatLogger(XLogLevelFatal, c.module, format, args...)
-	c.writeLog(c.file, logData)
+		logData := c.formatLogger(XLogLevelFatal, c.module, format, args...)
+		c.writeLog(c.file, logData)
 	*/
 }
 
@@ -152,7 +151,7 @@ func (c *XFile) SetLevel(level int) {
 	c.level = level
 }
 
-func (c*XFile) Close() {
+func (c *XFile) Close() {
 
 	if c.logChan != nil {
 		close(c.logChan)

@@ -12,8 +12,8 @@ func NewXConsole(level int, module string) XLog {
 
 	logger := &XConsole{}
 	logger.XLogBase = &XLogBase{
-		level : level,
-		module : module,
+		level:  level,
+		module: module,
 	}
 
 	return logger

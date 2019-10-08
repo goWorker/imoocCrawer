@@ -29,7 +29,7 @@ func newXLog(logType, level int, filename, module string) XLog {
 	return logger
 }
 
-func Init(logType, level int, filename, module string) (error) {
+func Init(logType, level int, filename, module string) error {
 	logger = newXLog(logType, level, filename, module)
 	return logger.Init()
 }

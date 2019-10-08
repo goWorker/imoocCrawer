@@ -1,12 +1,11 @@
 package xlog
 
 import (
-	"os"
 	"fmt"
-	"time"
+	"os"
 	"path/filepath"
+	"time"
 )
-
 
 type LogData struct {
 	timeStr  string
@@ -18,9 +17,9 @@ type LogData struct {
 	data     string
 }
 
-type XLogBase struct  {
-	level    int
-	module   string
+type XLogBase struct {
+	level  int
+	module string
 }
 
 func (l *XLogBase) writeLog(file *os.File, logData *LogData) {
@@ -29,7 +28,6 @@ func (l *XLogBase) writeLog(file *os.File, logData *LogData) {
 		logData.timeStr, logData.levelStr, logData.module, logData.filename,
 		logData.funcName, logData.lineNo, logData.data)
 }
-
 
 func (l *XLogBase) formatLogger(level int, module string, format string, args ...interface{}) *LogData {
 

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -8,7 +9,6 @@ import (
 	"os"
 	"strings"
 	"testing"
-	"errors"
 )
 
 func errPanic(writer http.ResponseWriter, request *http.Request) error {
@@ -64,21 +64,19 @@ var tests = []struct {
 	{noError, 200, "no error"},
 }
 
-
-func TestErrWrapper(t *testing.T){
-
+func TestErrWrapper(t *testing.T) {
 
 	for _, tt := range tests {
 		f := errWrapper(tt.h)
 		response := httptest.NewRecorder()
 		request := httptest.NewRequest(
 			http.MethodGet,
-			"http://www.imooc.com",nil)
-		f(response,request)
-		b,_:=ioutil.ReadAll(response.Body)
-		body := strings.Trim(string(b),"\n")
-		if response.Code != tt.code || body != tt.message{
-			t.Errorf("Expected (%d,%s); " + "got (%d,%s)", tt.code,tt.message,response.Code,body)
+			"http://www.imooc.com", nil)
+		f(response, request)
+		b, _ := ioutil.ReadAll(response.Body)
+		body := strings.Trim(string(b), "\n")
+		if response.Code != tt.code || body != tt.message {
+			t.Errorf("Expected (%d,%s); "+"got (%d,%s)", tt.code, tt.message, response.Code, body)
 		}
 	}
 

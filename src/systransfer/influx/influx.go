@@ -9,9 +9,9 @@ import (
 )
 
 const (
-	MyDB          = "sys_info"
-	username      = "admin"
-	password      = ""
+	MyDB           = "sys_info"
+	username       = "admin"
+	password       = ""
 	CPUMeasurement = "cpu_usage"
 	MEMMeasurement = "mem_used"
 	PROMeasurement = "pro_status"
@@ -19,10 +19,10 @@ const (
 
 var (
 	influxClient client.Client
-	msgChan chan string
+	msgChan      chan string
 )
 
-func Init(addr string) (err error){
+func Init(addr string) (err error) {
 	influxClient, err = client.NewHTTPClient(client.HTTPConfig{
 		Addr:     addr,
 		Username: username,
@@ -90,7 +90,7 @@ func procCpu(sysInfo *collect_sys_info.SystemInfo) {
 
 	tags := map[string]string{"host": sysInfo.IP}
 	fields := map[string]interface{}{
-		"usage":   cpuInfo.Percent,
+		"usage": cpuInfo.Percent,
 	}
 
 	pt, err := client.NewPoint(
@@ -134,9 +134,8 @@ func procMEM(sysInfo *collect_sys_info.SystemInfo) {
 
 	tags := map[string]string{"host": sysInfo.IP}
 	fields := map[string]interface{}{
-		"use_rate":   memInfo.UseRate,
-		"free": float64(memInfo.Free) / float64(memInfo.Total),
-
+		"use_rate": memInfo.UseRate,
+		"free":     float64(memInfo.Free) / float64(memInfo.Total),
 	}
 
 	pt, err := client.NewPoint(
@@ -180,7 +179,7 @@ func procPRO(sysInfo *collect_sys_info.SystemInfo) {
 
 	tags := map[string]string{"host": sysInfo.IP}
 	fields := map[string]interface{}{
-		"usage":   cpuInfo.Percent,
+		"usage": cpuInfo.Percent,
 	}
 
 	pt, err := client.NewPoint(

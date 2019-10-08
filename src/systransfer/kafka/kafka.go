@@ -10,7 +10,7 @@ var (
 	consumer sarama.Consumer
 )
 
-func Init(addr string, topic string)(err error) {
+func Init(addr string, topic string) (err error) {
 
 	consumer, err = sarama.NewConsumer([]string{addr}, nil)
 	if err != nil {
@@ -35,7 +35,7 @@ func Init(addr string, topic string)(err error) {
 			continue
 		}
 
-		go func()  {
+		go func() {
 			messageChan := pc.Messages()
 			for m := range messageChan {
 				//xlog.LogDebug("recv from kafka, text:%v\n", m, string(m.Value))

@@ -1,7 +1,9 @@
 package basic1
+
 import (
 	"fmt"
 )
+
 func main() {
 	// 准备一个字符串类型
 	var description = "This is the pointer example 001"

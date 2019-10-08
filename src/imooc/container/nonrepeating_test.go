@@ -51,5 +51,3 @@ func BenchmarkSubstr(b *testing.B) {
 		}
 	}
 }
-
-

@@ -3,10 +3,11 @@ package main
 import "fmt"
 
 var lastOccurred = make([]int, 0xffff)
+
 func lengthOfNonRepeatingSubStr(s string) int {
 	//lastOccurred := make(map[rune]int)
 
-	for i := range  lastOccurred{
+	for i := range lastOccurred {
 		lastOccurred[i] = -1
 	}
 	start := 0
