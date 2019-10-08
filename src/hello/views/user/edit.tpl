@@ -1,0 +1,1 @@
+/Users/allanyang/gofile/src/hello/views/user/edit.tpl

@@ -9,10 +9,10 @@ import (
 )
 
 func Delete(c *gin.Context) {
-	userId,_ := strconv.Atoi(c.Param("id"))
+	userId, _ := strconv.Atoi(c.Param("id"))
 
 	if err := model.DeleteUser(uint64(userId)); err != nil {
-		handler.SendResponse(c,errno.ErrDatabase, nil)
+		handler.SendResponse(c, errno.ErrDatabase, nil)
 		return
 	}
 	handler.SendResponse(c, nil, nil)

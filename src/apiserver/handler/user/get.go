@@ -10,9 +10,9 @@ import (
 func Get(c *gin.Context) {
 	username := c.Param("username")
 
-	user,err := model.GetUser(username)
+	user, err := model.GetUser(username)
 	if err != nil {
-		handler.SendResponse(c,errno.ErrUserNotFound,nil)
+		handler.SendResponse(c, errno.ErrUserNotFound, nil)
 	}
 	handler.SendResponse(c, nil, user)
 }

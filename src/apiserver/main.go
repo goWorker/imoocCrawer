@@ -1,9 +1,9 @@
 package main
 
 import (
+	"apiserver/config"
 	"apiserver/model"
 	"apiserver/router"
-	"apiserver/config"
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"
 	"github.com/pkg/errors"
@@ -22,7 +22,7 @@ func main() {
 	if err := config.Init(*cfg); err != nil {
 		panic(err)
 	}
-    model.DB.Init()
+	model.DB.Init()
 	defer model.DB.Close()
 	gin.SetMode(viper.GetString("runmode"))
 

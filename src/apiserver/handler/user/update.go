@@ -12,7 +12,7 @@ import (
 )
 
 func Update(c *gin.Context) {
-	log.Info("Update function called.", lager.Data{"X-Request-Id":util.GetReqID(c)})
+	log.Info("Update function called.", lager.Data{"X-Request-Id": util.GetReqID(c)})
 	userId, _ := strconv.Atoi(c.Param("id"))
 
 	var u model.UserModel
@@ -22,18 +22,18 @@ func Update(c *gin.Context) {
 	}
 	u.Id = uint64(userId)
 	if err := u.Validate(); err != nil {
-		handler.SendResponse(c,errno.ErrValidation,nil)
+		handler.SendResponse(c, errno.ErrValidation, nil)
 		return
 	}
 
 	if err := u.Encrypt(); err != nil {
-		handler.SendResponse(c,errno.ErrEncrypt,nil )
+		handler.SendResponse(c, errno.ErrEncrypt, nil)
 		return
 	}
 
 	if err := u.Update(); err != nil {
-		handler.SendResponse(c, errno.ErrDatabase,nil)
+		handler.SendResponse(c, errno.ErrDatabase, nil)
 		return
 	}
-	handler.SendResponse(c,nil, nil)
+	handler.SendResponse(c, nil, nil)
 }
