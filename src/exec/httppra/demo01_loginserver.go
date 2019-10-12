@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 	"strings"
-	"html/template"
 )
 
 func sayhello(w http.ResponseWriter, r *http.Request) {
@@ -35,7 +35,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	}
 }
 func main() {
-	http.HandleFunc("/hello", sayhello)           //设置访问的路由
+	http.HandleFunc("/hello", sayhello)      //设置访问的路由
 	http.HandleFunc("/login", login)         //设置访问的路由
 	err := http.ListenAndServe(":8080", nil) //设置监听的端口
 	if err != nil {

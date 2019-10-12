@@ -1,12 +1,12 @@
 package test
 
 import (
+	_ "myblogweb/routers"
 	"net/http"
 	"net/http/httptest"
 	"path/filepath"
 	"runtime"
 	"testing"
-	_ "todo/routers"
 
 	"github.com/astaxie/beego"
 	. "github.com/smartystreets/goconvey/convey"

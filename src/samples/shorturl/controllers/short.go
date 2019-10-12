@@ -22,6 +22,7 @@ type ShortResult struct {
 type ShortController struct {
 	beego.Controller
 }
+
 // Use Get rather than Post so that we can simulate easier in the browser
 func (this *ShortController) Get() {
 	var result ShortResult

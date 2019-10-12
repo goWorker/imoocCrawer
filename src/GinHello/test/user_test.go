@@ -43,17 +43,17 @@ func TestUserSaveWithNotAge(t *testing.T) {
 	assert.Equal(t, "用户:"+username+",年龄:20已经保存", w.Body.String())
 }
 
-func TestUserPostForm(t *testing.T)  {
+func TestUserPostForm(t *testing.T) {
 	value := url.Values{}
-	value.Add("email","allanyang@juniper.net")
-	value.Add("password","1234")
-	value.Add("password-again","1234")
+	value.Add("email", "allanyang@juniper.net")
+	value.Add("password", "1234")
+	value.Add("password-again", "1234")
 	w := httptest.NewRecorder()
-	req,_ := http.NewRequest(http.MethodPost,"/user/register",bytes.NewBufferString(value.Encode()))
-	req.Header.Add("Content-Type","application/x-www-form-urlencoded; param=value")
-	router.ServeHTTP(w,req)
-	assert.Equal(t,http.StatusMovedPermanently,w.Code)
-	
+	req, _ := http.NewRequest(http.MethodPost, "/user/register", bytes.NewBufferString(value.Encode()))
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded; param=value")
+	router.ServeHTTP(w, req)
+	assert.Equal(t, http.StatusMovedPermanently, w.Code)
+
 }
 
 func TestUserPostFormEmailErrorAndPasswordError(t *testing.T) {

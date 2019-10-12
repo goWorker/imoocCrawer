@@ -14,7 +14,7 @@ func main() {
 	2.再生成 http.request ->
 	3.之后提交请求：client.Do(request) ->
 	4.处理返回结果，每一步的过程都可以设置一些具体的参数。
-	 */
+	*/
 	urlStr := "http://www.webxml.com.cn/WebServices/WeatherWebService.asmx/getWeatherbyCityName?theCityName=北京"
 	//step1：创建client对象
 	client := http.Client{}

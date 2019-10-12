@@ -3,7 +3,6 @@ package initRouter
 import (
 	"GinHello/handler"
 	"github.com/gin-gonic/gin"
-
 )
 
 func SetupRouter() *gin.Engine {
@@ -28,4 +27,3 @@ func SetupRouter() *gin.Engine {
 	}
 	return router
 }
-

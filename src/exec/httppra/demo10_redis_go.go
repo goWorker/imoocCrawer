@@ -5,15 +5,15 @@ import (
 	"github.com/garyburd/redigo/redis"
 )
 
-func main(){
-	conn, err := redis.Dial("tcp","127.0.0.1:26679")
+func main() {
+	conn, err := redis.Dial("tcp", "127.0.0.1:26679")
 	if err != nil {
-		fmt.Println("connect redis error :",err)
+		fmt.Println("connect redis error :", err)
 		return
 	}
-	err = conn.Send("auth","Embe1mpls")
+	err = conn.Send("auth", "Embe1mpls")
 	if err != nil {
-		fmt.Println("Wrong password: ",err)
+		fmt.Println("Wrong password: ", err)
 	}
 	defer conn.Close()
 	_, err = conn.Do("SET", "name", "hanru")

@@ -74,4 +74,3 @@ func (m *TaskManager) Find(ID int64) (*Task, bool) {
 func init() {
 	DefaultTaskList = NewTaskManager()
 }
-

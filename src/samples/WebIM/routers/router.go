@@ -1,8 +1,8 @@
 package routers
 
 import (
-	"samples/WebIM/controllers"
 	"github.com/astaxie/beego"
+	"samples/WebIM/controllers"
 )
 
 func init() {

@@ -37,4 +37,3 @@ func UserLogin(context *gin.Context) {
 		})
 	}
 }
-
