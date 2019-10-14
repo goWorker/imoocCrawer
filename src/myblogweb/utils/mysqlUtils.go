@@ -15,6 +15,7 @@ func InitMysql() {
 		db, _ = sql.Open("mysql", "root:wandl123@tcp(127.0.0.1:3306)/myblogweb")
 		CreateTableWithUser()
 		CreateTableWithArticle()
+		CreateTableWithAlbum()
 	}
 }
 

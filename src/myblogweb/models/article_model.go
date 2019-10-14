@@ -3,6 +3,7 @@ package models
 import (
 	"fmt"
 	"github.com/astaxie/beego"
+	"log"
 	"myblogweb/utils"
 	"strconv"
 )
@@ -104,3 +105,62 @@ func QueryArticleWithId(id int) Article {
 	art := Article{id, title, tags, short, content, author, createtime}
 	return art
 }
+
+func UpdateArticle(article Article) (int64,error) {
+	return utils.ModifyDB("update article set title=?,tags=?,short=?,content=? where id=?",
+		article.Title, article.Tags, article.Short, article.Content, article.Id)
+}
+
+func DeleteArticle(artID int)(int64, error) {
+	i, err := deleteArticleWithArtId(artID)
+	SetArticleRowsNum()
+	return i, err
+}
+
+func deleteArticleWithArtId(artID int) (int64, error){
+	return utils.ModifyDB("delete from article where id=?", artID)
+}
+
+func QueryArticleWithParam(param string) []string{
+	rows, err := utils.QueryDB(fmt.Sprintf("select %s from article",param))
+	if err != nil {
+		log.Println(err)
+	}
+	var paramList []string
+	for rows.Next(){
+		arg := ""
+		rows.Scan(&arg)
+		paramList = append(paramList,arg)
+	}
+	return paramList
+}
+
+func QueryArticlesWithTag(tag string) ([]Article, error) {
+	sql := " where tags like '%&" + tag + "&%'"
+	sql += " or tags like '%&" + tag + "'"
+	sql += " or tags like '" + tag + "&%'"
+	sql += " or tags like '" + tag + "'"
+	fmt.Println(sql)
+	return QueryArticleWithCon(sql)
+}
+
+func FindAllAlbums() ([]Album, error) {
+	rows, err := utils.QueryDB("select id,filepath,filename,status,createtime from album")
+	if err != nil {
+		return nil, err
+	}
+	var albums []Album
+	for rows.Next() {
+		id := 0
+		filepath := ""
+		filename := ""
+		status := 0
+		var createtime int64
+		createtime = 0
+		rows.Scan(&id, &filepath, &filename, &status, &createtime)
+		album := Album{id, filepath, filename, status, createtime}
+		albums = append(albums, album)
+	}
+	return albums, nil
+}
+
