@@ -10,15 +10,24 @@ type HomeController struct {
 }
 
 func (this *HomeController) Get(){
-
+	tag := this.GetString("tag")
+	fmt.Println("tag:",tag)
 	page,_:= this.GetInt("page")
-	if page <= 0 {
-		page = 1
-	}
 	var artList []models.Article
-	artList, _=models.FindArticleWithPage(page)
-	this.Data["PageCode"] = models.ConfigHomeFooterPageCode(page)
-	this.Data["HasFooter"] = true
+	if len(tag) > 0{
+		artList,_ = models.QueryArticleWithTag(tag)
+		this.Data["HasFooter"] = false
+	}else {
+		if page <= 0 {
+			page = 1
+	}
+		artList, _=models.FindArticleWithPage(page)
+		this.Data["PageCode"] = models.ConfigHomeFooterPageCode(page)
+		this.Data["HasFooter"] = true
+
+	}
+
+
 	fmt.Println("IsLogin: ",this.IsLogin,this.Loginuser)
 	this.Data["Content"] = models.MakeHomeBlocks(artList,this.IsLogin)
 	this.TplName="home.html"
