@@ -3,16 +3,20 @@ package taskrunner
 import (
 	"github.com/pkg/errors"
 	"log"
-	"os"
 	"sync"
 	"video_server/scheduler/dbops"
+	"video_server/scheduler/ossops"
 )
 func deleteVideo(vid string) error{
-	err := os.Remove(VIDEO_PATH + vid)
-	if err := nill && os.IsNotExist(err){
-		log.Printf("Deleting video errpr: %v",err)
-		return err
+	ossfn := "videos/" + vid
+	bn := "allanvideoserver"
+	ok := ossops.DeleteObject(ossfn, bn)
+
+	if !ok {
+		log.Printf("Deleting video error, oss operation failed")
+		return errors.New("Deleting video error")
 	}
+
 	return nil
 }
 func VideoClearDispatcher(dc dataChan) error{
@@ -31,20 +35,21 @@ func VideoClearDispatcher(dc dataChan) error{
 	return nil
 }
 
-func VidelClearExecutor(dc dataChan) error{
-	errMap :=&sync.Map{}
+func VideoClearExecutor(dc dataChan) error {
+	errMap := &sync.Map{}
 	var err error
+
 	forloop:
-		for{
+		for {
 			select {
 			case vid :=<- dc:
-				go func(id interface{}){
-					if err := deleteVideo(id.(string));err != nil{
-						errMap.Store(id,err)
+				go func(id interface{}) {
+					if err := deleteVideo(id.(string)); err != nil {
+						errMap.Store(id, err)
 						return
 					}
-					if err :=dbops.DelVideoDeletionRecord(id.(string));err != nil {
-						errMap.Store(id,err)
+					if err := dbops.DelVideoDeletionRecord(id.(string)); err != nil {
+						errMap.Store(id, err)
 						return
 					}
 				}(vid)
@@ -52,11 +57,14 @@ func VidelClearExecutor(dc dataChan) error{
 				break forloop
 			}
 		}
-	errMap.Range(func(k,v interface{})bool {
-		err = v.(error)
-		if err != nil {
-			return false
-		}
-	})
-	return err
+
+		errMap.Range(func(k, v interface{}) bool {
+			err = v.(error)
+			if err != nil {
+				return false
+			}
+			return true
+		})
+
+		return err
 }

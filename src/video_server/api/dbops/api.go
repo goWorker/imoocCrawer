@@ -53,7 +53,31 @@ func DeleteUser(loginName string, pwd string) error {
 	return nil
 
 }
+func GetUser(loginName string) (*defs.User, error) {
+	stmtOut, err := dbConn.Prepare("SELECT id, pwd FROM users WHERE login_name = ?")
+	if err != nil {
+		log.Printf("%s", err)
+		return nil, err
+	}
 
+	var id int
+	var pwd string
+
+	err = stmtOut.QueryRow(loginName).Scan(&id, &pwd)
+	if err != nil && err != sql.ErrNoRows{
+		return nil, err
+	}
+
+	if err == sql.ErrNoRows {
+		return nil, nil
+	}
+
+	res := &defs.User{Id: id, LoginName: loginName, Pwd: pwd}
+
+	defer stmtOut.Close()
+
+	return res, nil
+}
 func AddNewVideo(aid int, name string) (*defs.VideoInfo,error) {
 	vid,err := utils.NewUUID()
 	if err != nil {
@@ -165,26 +189,53 @@ func AddNewComments(vid string,aid int,content string) error {
 	return nil
 }
 
-func ListComments(vid string, from,to int) ([]*defs.Comment,error) {
-	stmtOut,err := dbConn.Prepare(`SELECT comments.id, users.Login_name, comments.content FROM comments
+//func ListComments(vid string, from,to int) ([]*defs.Comment,error) {
+//	stmtOut,err := dbConn.Prepare(`SELECT comments.id, users.Login_name, comments.content FROM comments
+//		INNER JOIN users ON comments.author_id = users.id
+//		WHERE comments.video_id = ? AND comments.time > FROM_UNIXTIME(?) AND comments.time <= FROM_UNIXTIME(?)
+//		ORDER BY comments.time DESC`)
+//	var res []*defs.Comment
+//	rows, err := stmtOut.Query(vid,from,to)
+//	if err != nil {
+//		return res, err
+//	}
+//	for rows.Next(){
+//		var id,name,content string
+//		if err := rows.Scan(&id,&name,&content); err != nil{
+//			return res,nil
+//		}
+//		c:= &defs.Comment{Id:id,VideoId:vid,Author:name,Content:content}
+//		res = append(res,c)
+//	}
+//	return res,nil
+//	defer stmtOut.Close()
+//	return res,nil
+//
+//}
+
+func ListComments(vid string, from, to int) ([]*defs.Comment, error) {
+	stmtOut, err := dbConn.Prepare(` SELECT comments.id, users.Login_name, comments.content FROM comments
 		INNER JOIN users ON comments.author_id = users.id
 		WHERE comments.video_id = ? AND comments.time > FROM_UNIXTIME(?) AND comments.time <= FROM_UNIXTIME(?)
 		ORDER BY comments.time DESC`)
+
 	var res []*defs.Comment
-	rows, err := stmtOut.Query(vid,from,to)
+
+	rows, err := stmtOut.Query(vid, from, to)
 	if err != nil {
 		return res, err
 	}
-	for rows.Next(){
-		var id,name,content string
-		if err := rows.Scan(&id,&name,&content); err != nil{
-			return res,nil
-		}
-		c:= &defs.Comment{Id:id,VideoId:vid,Author:name,Content:content}
-		res = append(res,c)
-	}
-	return res,nil
-	defer stmtOut.Close()
-	return res,nil
 
+	for rows.Next() {
+		var id, name, content string
+		if err := rows.Scan(&id, &name, &content); err != nil {
+			return res, err
+		}
+
+		c := &defs.Comment{Id: id, VideoId: vid, Author: name, Content: content}
+		res = append(res, c)
+	}
+	defer stmtOut.Close()
+
+	return res, nil
 }

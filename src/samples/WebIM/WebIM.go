@@ -28,7 +28,7 @@ const (
 func main() {
 	beego.Info(beego.BConfig.AppName, APP_VER)
 
-	// Register template functions.
+	// Register templates functions.
 	beego.AddFuncMap("i18n", i18n.Tr)
 
 	beego.Run()

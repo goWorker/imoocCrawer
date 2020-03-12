@@ -42,7 +42,7 @@ func init() {
 // thus, it will be embedded into other routers.
 type baseController struct {
 	beego.Controller // Embed struct that has stub implementation of the interface.
-	i18n.Locale      // For i18n usage when process data and render template.
+	i18n.Locale      // For i18n usage when process data and render templates.
 }
 
 // Prepare implemented Prepare() method for baseController.
@@ -65,7 +65,7 @@ func (this *baseController) Prepare() {
 		this.Lang = "en-US"
 	}
 
-	// Set template level language option.
+	// Set templates level language option.
 	this.Data["Lang"] = this.Lang
 }
 
