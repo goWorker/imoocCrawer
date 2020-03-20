@@ -7,19 +7,21 @@ import (
 	_"github.com/go-sql-driver/mysql"
 )
 
-func dbinit(aliases ...string){
-	isDev := ("dev"==beego.AppConfig.String("runmode"))
-	if len(aliases) >0 {
-		for _, alias := range aliases{
+func dbinit(aliases ...string) {
+	//如果是开发模式，则显示命令信息
+	isDev := (beego.AppConfig.String("runmode") == "dev")
+
+	if len(aliases) > 0 {
+		for _, alias := range aliases {
 			registDatabase(alias)
-			if "w" == alias{
-				orm.RunSyncdb("default",false,true)
+			//主库 自动建表
+			if "w" == alias {
+				orm.RunSyncdb("default", false, isDev)
 			}
 		}
-
-	}else{
+	} else {
 		registDatabase("w")
-		orm.RunSyncdb("default",false,true)
+		orm.RunSyncdb("default", false, isDev)
 	}
 
 	if isDev {
@@ -27,24 +29,27 @@ func dbinit(aliases ...string){
 	}
 }
 
-func registDatabase(alias string){
-	if len(alias) <= 0 {
+func registDatabase(alias string) {
+	if len(alias) == 0 {
 		return
 	}
+	//连接名称
 	dbAlias := alias
 	if "w" == alias || "default" == alias {
 		dbAlias = "default"
 		alias = "w"
 	}
-	dbName := beego.AppConfig.String("db_"+alias+"_databse")
+	//数据库名称
+	dbName := beego.AppConfig.String("db_" + alias + "_database")
+	//数据库连接用户名
+	dbUser := beego.AppConfig.String("db_" + alias + "_username")
+	//数据库连接用户名
+	dbPwd := beego.AppConfig.String("db_" + alias + "_password")
+	//数据库IP（域名）
+	dbHost := beego.AppConfig.String("db_" + alias + "_host")
+	//数据库端口
+	dbPort := beego.AppConfig.String("db_" + alias + "_port")
 
-	dbuser := beego.AppConfig.String("db_"+alias+"_username")
+	orm.RegisterDataBase(dbAlias, "mysql", dbUser+":"+dbPwd+"@tcp("+dbHost+":"+dbPort+")/"+dbName+"?charset=utf8", 30)
 
-	dbPwd := beego.AppConfig.String("db_"+alias+"_password")
-
-	dbHost := beego.AppConfig.String("db_"+alias+"_host")
-
-	dbPort := beego.AppConfig.String("db_"+alias+"_port")
-
-	orm.RegisterDataBase(dbAlias,"mysql",dbuser+":"+dbPwd+"@tpc("+dbHost+":"+dbPort+")/"+dbName+"?charset=utf8",30)
 }
